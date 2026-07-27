@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-heading: 'Cinzel', serif;
+    --font-hindi: 'Rozha One', 'Tiro Devanagari Hindi', serif;
+    --font-sans: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #FFFDF9;
+    color: #1E293B;
+  }
+}
+
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+.font-hindi {
+  font-family: var(--font-hindi);
+}
+
+/* Bright Spiritual Color Palette */
+.spiritual-gradient-text {
+  background: linear-gradient(135deg, #B91C1C 0%, #EA580C 40%, #D97706 80%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.saffron-gradient-text {
+  background: linear-gradient(135deg, #C2410C 0%, #F97316 50%, #EAB308 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.spiritual-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  box-shadow: 0 4px 20px rgba(240, 90, 26, 0.08);
+}
+
+.spiritual-card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.spiritual-card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(234, 88, 12, 0.18);
+  border-color: rgba(245, 158, 11, 0.6);
+}
+
+.saffron-banner {
+  background: linear-gradient(135deg, #F05A1A 0%, #EA580C 50%, #C2410C 100%);
+}
+
+/* Diya Flicker Effect */
+@keyframes flicker {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1) rotate(-1deg);
+    filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.9));
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.08) rotate(1deg);
+    filter: drop-shadow(0 0 15px rgba(239, 68, 6, 1));
+  }
+  75% {
+    opacity: 0.92;
+    transform: scale(0.96);
+    filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.7));
+  }
+}
+
+.animate-diya {
+  animation: flicker 2.2s infinite ease-in-out;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FFF7ED;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #F05A1A;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C2410C;
+}
