@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --font-heading: 'Cinzel', serif;
+    --font-heading: 'Outfit', sans-serif;
     --font-hindi: 'Rozha One', 'Tiro Devanagari Hindi', serif;
     --font-sans: 'Plus Jakarta Sans', sans-serif;
   }

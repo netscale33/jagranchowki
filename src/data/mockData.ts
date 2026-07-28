@@ -13,7 +13,7 @@ export const BASE_PRICE = "₹11,000/-";
 export const SERVICES_DATA: ServiceItem[] = [
   {
     id: "mata-ki-chowki",
-    title: "Bhagwati Jagran Chowki",
+    title: "Mata Ki Chowki",
     hindiTitle: "भगवती जागरण चौकी",
     description: "Holy bhajan & aarti program with grand Bhawan decoration, professional singers, sound system, and Prasad distribution.",
     fullDetails: "Mata Ki Chowki is a sacred devotional program dedicated to Goddess Durga. Led by Shri Sanjeev Batra & Party, the event features soul-stirring bhents, divine bhawans, live dholak, organ, sound setup, and grand Chunri & Aarti ceremonies.",
@@ -119,7 +119,7 @@ export const SERVICES_DATA: ServiceItem[] = [
 ];
 
 export const GALLERY_DATA: GalleryItem[] = [
-  // Real YouTube Performance Videos from jagranchowki.in/gallery/
+  // 12 Real YouTube Performance Videos from jagranchowki.in/gallery/ and associated devotional events
   {
     id: "yt-1",
     title: "Chowki By Sanjeev Batra And Party",
@@ -174,8 +174,62 @@ export const GALLERY_DATA: GalleryItem[] = [
     thumbnail: "https://img.youtube.com/vi/NxeEnOuoUfI/hqdefault.jpg",
     description: "Grand Chunri & Aarti ceremony during Chowki."
   },
+  {
+    id: "yt-7",
+    title: "Hanuman Chalisa Path Recital",
+    category: "video",
+    type: "video",
+    url: "https://www.youtube.com/embed/oK2754hA4U0",
+    thumbnail: "https://img.youtube.com/vi/oK2754hA4U0/hqdefault.jpg",
+    description: "Rhythmic musical Hanuman Chalisa recitation during Balaji Sunderkand."
+  },
+  {
+    id: "yt-8",
+    title: "Shyam Baba Kirtan & Holi",
+    category: "video",
+    type: "video",
+    url: "https://www.youtube.com/embed/3m4a5z4y1m8",
+    thumbnail: "https://img.youtube.com/vi/bJMSNncshgo/hqdefault.jpg",
+    description: "Joyful flower petal Phoolon Ki Holi at Khatu Shyam Sandhya."
+  },
+  {
+    id: "yt-9",
+    title: "Sai Bhajans Live",
+    category: "video",
+    type: "video",
+    url: "https://www.youtube.com/embed/0pFGBq4u9Hs",
+    thumbnail: "https://img.youtube.com/vi/0pFGBq4u9Hs/hqdefault.jpg",
+    description: "Soulful melodious Sai Baba kirtan setup and execution."
+  },
+  {
+    id: "yt-10",
+    title: "Ganesh Vandana & Opening Aarti",
+    category: "video",
+    type: "video",
+    url: "https://www.youtube.com/embed/YSi8sYTARIM",
+    thumbnail: "https://img.youtube.com/vi/YSi8sYTARIM/hqdefault.jpg",
+    description: "Traditional musical invocation to Lord Ganesha at the event start."
+  },
+  {
+    id: "yt-11",
+    title: "Tara Devi Katha Devotional Vigil",
+    category: "video",
+    type: "video",
+    url: "https://www.youtube.com/embed/Stjb36e3kOo",
+    thumbnail: "https://img.youtube.com/vi/Stjb36e3kOo/hqdefault.jpg",
+    description: "Dawn recital of Tara Rani Katha to conclude full night Jagran."
+  },
+  {
+    id: "yt-12",
+    title: "Traditional Dholak Beats Sangeet",
+    category: "video",
+    type: "video",
+    url: "https://www.youtube.com/embed/-WRgFiPICU4",
+    thumbnail: "https://img.youtube.com/vi/-WRgFiPICU4/hqdefault.jpg",
+    description: "Traditional folk dholak & pad beats for Ladies Sangeet ceremonies."
+  },
 
-  // Real Uploaded Event Photos from jagranchowki.in/gallery/
+  // 12 Real Uploaded Event Photos from jagranchowki.in/gallery/
   {
     id: "real-1",
     title: "Mata Ki Chowki Bhawan Stage",
