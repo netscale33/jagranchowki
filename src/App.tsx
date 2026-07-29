@@ -15,17 +15,17 @@ export function App() {
   const isHome = location.pathname === '/' || location.pathname === '';
 
   return (
-    <div className="min-h-screen flex flex-col" style={{ background: 'var(--c-bg)', color: 'var(--c-text)' }}>
-      {/* Flower shower only on home */}
+    <div className="min-h-screen flex flex-col bg-[#FAF7F2] text-slate-800 font-sans selection:bg-orange-100 selection:text-orange-900">
+      {/* Flower shower only on home top */}
       {isHome && <FlowerShower />}
 
-      {/* Floating mobile action buttons */}
+      {/* Floating mobile corner action buttons */}
       <MobileQuickBar />
 
-      {/* Navigation */}
+      {/* Header Navigation */}
       <Navbar />
 
-      {/* Page content */}
+      {/* Main Content View */}
       <main className="flex-1">
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -34,7 +34,6 @@ export function App() {
           <Route path="/services/:serviceId" element={<ServicesPage />} />
           <Route path="/gallery" element={<GalleryPage />} />
           <Route path="/contact" element={<ContactPage />} />
-          {/* Catch-all redirect to home */}
           <Route path="*" element={<HomePage />} />
         </Routes>
       </main>

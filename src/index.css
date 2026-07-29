@@ -3,32 +3,34 @@
 @tailwind utilities;
 
 /* =====================================================
-   JAGRAN CHOWKI — Premium Spiritual Design System
-   Human-crafted, not AI-generated
+   JAGRAN CHOWKI — Premium Human Light Design System
+   Clean, Crisp, Cultural & Spiritual (Ivory & Warm Vermilion)
    ===================================================== */
 
 @layer base {
   :root {
-    /* Color Tokens */
-    --c-bg: #0C0500;
-    --c-surface: #160A02;
-    --c-card: #1C0D04;
-    --c-card-hover: #231006;
-    --c-border: rgba(200, 120, 30, 0.18);
-    --c-border-strong: rgba(200, 120, 30, 0.35);
+    /* Color Tokens - Light Theme Only */
+    --c-bg: #FAF7F2;
+    --c-surface: #FFFFFF;
+    --c-surface-warm: #FFF9F2;
+    --c-card: #FFFFFF;
+    --c-card-hover: #FFFBF7;
+    --c-border: #EADBCE;
+    --c-border-strong: #D9C3B0;
 
     /* Brand Colors */
-    --c-saffron: #D4690A;
-    --c-saffron-light: #E87A1A;
-    --c-gold: #C9A227;
-    --c-gold-light: #E8BE50;
-    --c-sindoor: #8B1A1A;
-    --c-emerald: #10B981;
+    --c-vermilion: #C84B26;        /* Deep Sacred Crimson / Vermilion */
+    --c-vermilion-hover: #AF3E1E;
+    --c-saffron: #D96B27;          /* Warm Marigold / Saffron */
+    --c-saffron-light: #F48C42;
+    --c-gold: #B8860B;             /* Antique Warm Gold */
+    --c-emerald: #15803D;
 
-    /* Text */
-    --c-text: #F0E4CC;
-    --c-text-muted: #B8A88A;
-    --c-text-faint: #7A6850;
+    /* Text Colors */
+    --c-text: #1F2937;             /* Dark Charcoal / Near Black for crisp readability */
+    --c-text-secondary: #4B5563;
+    --c-text-muted: #6B7280;
+    --c-text-faint: #9CA3AF;
 
     /* Font Families */
     --f-display: 'Playfair Display', Georgia, serif;
@@ -54,8 +56,8 @@
   }
 
   ::selection {
-    background: rgba(212, 105, 10, 0.4);
-    color: #F0E4CC;
+    background: #FED7AA;
+    color: #7C2D12;
   }
 }
 
@@ -68,147 +70,98 @@
   font-family: var(--f-hindi);
 }
 
-/* ===== Scrollbar ===== */
+/* ===== Custom Scrollbar ===== */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 7px;
 }
 ::-webkit-scrollbar-track {
-  background: #0C0500;
+  background: #FAF7F2;
 }
 ::-webkit-scrollbar-thumb {
-  background: #3A1800;
-  border-radius: 3px;
+  background: #CBD5E1;
+  border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #D4690A;
+  background: #94A3B8;
 }
 
 /* ===== Card System ===== */
-.card {
-  background: var(--c-card);
+.card-light {
+  background: var(--c-surface);
   border: 1px solid var(--c-border);
-  border-radius: 12px;
-  transition: border-color 0.2s ease, background 0.2s ease;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.card:hover {
-  background: var(--c-card-hover);
+.card-light:hover {
   border-color: var(--c-border-strong);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
 }
 
 /* ===== Buttons ===== */
-.btn-primary {
+.btn-vermilion {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
-  padding: 10px 20px;
-  background: var(--c-saffron);
-  color: #fff;
+  gap: 8px;
+  padding: 10px 22px;
+  background: var(--c-vermilion);
+  color: #FFFFFF;
   font-family: var(--f-body);
-  font-weight: 700;
-  font-size: 13px;
+  font-weight: 600;
+  font-size: 13.5px;
   border-radius: 6px;
   border: none;
   cursor: pointer;
-  transition: background 0.15s ease, transform 0.1s ease;
+  transition: background-color 0.15s ease, transform 0.1s ease;
 }
-.btn-primary:hover {
-  background: var(--c-saffron-light);
-  transform: translateY(-1px);
-}
-.btn-primary:active {
-  transform: translateY(0);
+.btn-vermilion:hover {
+  background-color: var(--c-vermilion-hover);
 }
 
-.btn-outline {
+.btn-outline-light {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
-  padding: 10px 20px;
-  background: transparent;
+  gap: 8px;
+  padding: 10px 22px;
+  background: #FFFFFF;
   color: var(--c-text);
   font-family: var(--f-body);
   font-weight: 600;
-  font-size: 13px;
+  font-size: 13.5px;
   border-radius: 6px;
   border: 1px solid var(--c-border-strong);
   cursor: pointer;
-  transition: border-color 0.15s ease, background 0.15s ease;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
 }
-.btn-outline:hover {
-  background: rgba(200, 120, 30, 0.1);
-  border-color: var(--c-saffron);
+.btn-outline-light:hover {
+  border-color: var(--c-vermilion);
+  background-color: #FFF9F5;
 }
 
-.btn-wa {
+.btn-whatsapp-light {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
-  padding: 10px 20px;
-  background: #16a34a;
-  color: #fff;
+  gap: 8px;
+  padding: 10px 22px;
+  background: var(--c-emerald);
+  color: #FFFFFF;
   font-family: var(--f-body);
-  font-weight: 700;
-  font-size: 13px;
+  font-weight: 600;
+  font-size: 13.5px;
   border-radius: 6px;
   border: none;
   cursor: pointer;
-  transition: background 0.15s ease;
+  transition: background-color 0.15s ease;
 }
-.btn-wa:hover {
-  background: #15803d;
-}
-
-/* ===== Section Divider ===== */
-.section-divider {
-  width: 48px;
-  height: 3px;
-  background: linear-gradient(to right, var(--c-saffron), var(--c-gold));
-  border-radius: 2px;
-  margin: 12px 0;
+.btn-whatsapp-light:hover {
+  background-color: #166534;
 }
 
-/* ===== Gold Text ===== */
-.text-gold {
-  color: var(--c-gold);
-}
-.text-saffron {
-  color: var(--c-saffron-light);
-}
-
-/* ===== Overlay Gradient ===== */
-.photo-overlay {
-  background: linear-gradient(to top, rgba(12,5,0,0.92) 0%, rgba(12,5,0,0.3) 60%, transparent 100%);
-}
-
-/* ===== Diya Flicker Animation ===== */
-@keyframes diya-flicker {
-  0%, 100% { opacity: 1; filter: drop-shadow(0 0 8px rgba(212, 105, 10, 0.9)); }
-  35% { opacity: 0.88; filter: drop-shadow(0 0 14px rgba(212, 105, 10, 1)); }
-  65% { opacity: 0.94; filter: drop-shadow(0 0 6px rgba(212, 105, 10, 0.7)); }
-}
-.animate-diya {
-  animation: diya-flicker 2.4s infinite ease-in-out;
-}
-
-/* ===== Fade In on Scroll (CSS-only trigger) ===== */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(18px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.animate-fadeup {
-  animation: fadeUp 0.5s ease both;
-}
-
-/* ===== Page Hero ===== */
-.hero-texture {
-  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4690A' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-}
-
-/* ===== Image lazy load fade ===== */
-img {
-  transition: opacity 0.3s ease;
-}
-img.loaded {
-  opacity: 1;
+/* ===== Subtle Section Divider ===== */
+.section-line {
+  width: 40px;
+  height: 2px;
+  background: var(--c-vermilion);
+  border-radius: 1px;
 }

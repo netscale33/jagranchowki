@@ -8,39 +8,36 @@ import { Star, CheckCircle2, ArrowRight, Phone, Calendar, Music, HeartHandshake,
 
 export const HomePage: React.FC = () => {
   return (
-    <div className="space-y-12 sm:space-y-20 pb-12">
+    <div className="space-y-10 sm:space-y-16 pb-12">
       {/* Hero Section */}
       <HeroSection />
 
       {/* Special Offer Highlight Banner */}
       <section className="px-4 sm:px-6">
-        <div
-          className="max-w-7xl mx-auto rounded-xl p-6 sm:p-10 text-white relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6"
-          style={{ background: 'linear-gradient(135deg, #1C0D04 0%, #2A1205 100%)', border: '1px solid var(--c-border-strong)' }}
-        >
-          <div className="space-y-2 z-10 text-center md:text-left">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded text-xs font-semibold uppercase tracking-wider" style={{ background: 'rgba(212,105,10,0.15)', color: 'var(--c-saffron-light)', border: '1px solid rgba(212,105,10,0.3)' }}>
-              <span>🪔 Most Requested Package</span>
+        <div className="max-w-7xl mx-auto rounded-xl bg-gradient-to-r from-[#C84B26] to-[#D96B27] p-6 sm:p-10 text-white shadow-md relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6 border border-orange-700">
+          <div className="space-y-2 text-center md:text-left">
+            <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded bg-white/20 text-white text-xs font-bold uppercase tracking-wider">
+              <span>🪔 Most Popular Choice</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-display font-bold text-cream">
+            <h2 className="text-2xl sm:text-3xl font-display font-bold text-white">
               Complete Mata Ki Chowki & Jagran Setup
             </h2>
-            <p className="text-xs sm:text-sm font-medium max-w-xl" style={{ color: 'var(--c-text-muted)' }}>
+            <p className="text-xs sm:text-sm text-orange-100 font-medium max-w-xl">
               Includes Singer Team, Dholak, Pad, Sound System, Temple Bhawan Decor, Jyoti Prachand & Kanya Pujan Prasad arrangement.
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-3 z-10 w-full md:w-auto justify-center">
+          <div className="flex flex-wrap gap-3 justify-center w-full md:w-auto">
             <a
               href={`tel:${PHONE_NUMBER_PRIMARY}`}
-              className="btn-primary text-xs sm:text-sm px-5 py-3"
+              className="px-5 py-3 rounded-md bg-white text-[#C84B26] font-bold text-xs sm:text-sm hover:bg-orange-50 transition-colors flex items-center justify-center gap-2 shadow-sm"
             >
-              <Phone className="w-4 h-4 fill-current" />
-              <span>Book Event</span>
+              <Phone className="w-4 h-4 fill-current text-[#C84B26]" />
+              <span>Book Your Event</span>
             </a>
             <Link
               to="/services/mata-ki-chowki"
-              className="btn-outline text-xs sm:text-sm px-5 py-3"
+              className="px-5 py-3 rounded-md bg-black/20 hover:bg-black/30 text-white font-bold text-xs sm:text-sm transition-colors flex items-center justify-center gap-2"
             >
               <span>Package Details</span>
               <ArrowRight className="w-4 h-4" />
@@ -50,14 +47,14 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* Services Grid */}
-      <section className="py-4 px-4 sm:px-6 max-w-7xl mx-auto space-y-8">
+      <section className="py-2 px-4 sm:px-6 max-w-7xl mx-auto space-y-8">
         <div className="text-center space-y-2">
-          <span className="text-xs font-semibold uppercase tracking-widest text-saffron">Devotional Offerings</span>
-          <h2 className="text-2xl sm:text-4xl font-display font-bold text-cream">
+          <span className="text-xs font-bold uppercase tracking-widest text-[#C84B26]">Devotional Offerings</span>
+          <h2 className="text-2xl sm:text-4xl font-display font-bold text-slate-900">
             Our Spiritual Event Services
           </h2>
-          <div className="section-divider mx-auto" />
-          <p className="text-xs sm:text-sm max-w-xl mx-auto font-medium" style={{ color: 'var(--c-text-muted)' }}>
+          <div className="section-line mx-auto" />
+          <p className="text-xs sm:text-sm text-slate-600 max-w-xl mx-auto font-medium">
             Delivering divine vibrations and soulful musical devotional experiences across Delhi NCR & India.
           </p>
         </div>
@@ -66,22 +63,22 @@ export const HomePage: React.FC = () => {
           {SERVICES_DATA.map((service) => (
             <div
               key={service.id}
-              className="card overflow-hidden flex flex-col justify-between group"
+              className="card-light overflow-hidden flex flex-col justify-between group"
             >
-              <div className="relative h-48 overflow-hidden bg-black">
+              <div className="relative h-48 overflow-hidden bg-slate-100">
                 <img
                   src={service.image}
                   alt={service.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="photo-overlay absolute inset-0" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                 {service.popular && (
-                  <span className="absolute top-3 right-3 px-2.5 py-1 rounded text-[10px] font-bold uppercase tracking-wider text-white" style={{ background: 'var(--c-saffron)' }}>
+                  <span className="absolute top-3 right-3 px-2.5 py-1 rounded bg-[#C84B26] text-white font-bold text-[10px] uppercase tracking-wider shadow-sm">
                     Popular
                   </span>
                 )}
                 <div className="absolute bottom-3 left-3 text-white">
-                  <span className="text-xs font-bold px-2.5 py-1 rounded" style={{ background: 'rgba(12,5,0,0.85)', border: '1px solid var(--c-border)' }}>
+                  <span className="text-xs font-bold px-2.5 py-1 rounded bg-black/80 shadow-sm border border-white/20">
                     {service.price}
                   </span>
                 </div>
@@ -89,21 +86,19 @@ export const HomePage: React.FC = () => {
 
               <div className="p-5 space-y-4 flex-1 flex flex-col justify-between">
                 <div className="space-y-1.5">
-                  <div className="flex items-center justify-between">
-                    <h3 className="text-lg font-display font-bold text-cream group-hover:text-saffron-light transition-colors">
-                      {service.title}
-                    </h3>
-                  </div>
-                  <div className="text-xs font-hindi font-semibold" style={{ color: 'var(--c-gold)' }}>{service.hindiTitle}</div>
-                  <p className="text-xs leading-relaxed font-medium" style={{ color: 'var(--c-text-muted)' }}>
+                  <h3 className="text-lg font-display font-bold text-slate-900 group-hover:text-[#C84B26] transition-colors">
+                    {service.title}
+                  </h3>
+                  <div className="text-xs font-hindi font-bold text-[#C84B26]">{service.hindiTitle}</div>
+                  <p className="text-xs text-slate-600 leading-relaxed font-medium">
                     {service.description}
                   </p>
                 </div>
 
-                <div className="space-y-2 pt-3 border-t" style={{ borderColor: 'var(--c-border)' }}>
+                <div className="space-y-2 pt-3 border-t border-slate-100">
                   {service.features.slice(0, 3).map((feat, i) => (
-                    <div key={i} className="flex items-center gap-2 text-xs font-medium" style={{ color: 'var(--c-text-muted)' }}>
-                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 flex-shrink-0" />
+                    <div key={i} className="flex items-center gap-2 text-xs text-slate-700 font-medium">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" />
                       <span>{feat}</span>
                     </div>
                   ))}
@@ -112,7 +107,7 @@ export const HomePage: React.FC = () => {
                 <div className="pt-2 flex items-center justify-between gap-2">
                   <Link
                     to={`/services/${service.id}`}
-                    className="text-xs font-bold flex items-center gap-1 text-saffron hover:underline"
+                    className="text-xs font-bold flex items-center gap-1 text-[#C84B26] hover:underline"
                   >
                     <span>View Details</span>
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -122,7 +117,7 @@ export const HomePage: React.FC = () => {
                     href={`https://wa.me/${WHATSAPP_NUMBER}?text=Jai%20Mata%20Di!%20I%20want%20to%20book%20${encodeURIComponent(service.title)}.`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn-wa text-xs py-1.5 px-3"
+                    className="btn-whatsapp-light text-xs py-1.5 px-3"
                     title="Quick Book on WhatsApp"
                   >
                     <WhatsAppIcon className="w-3.5 h-3.5 text-white" />
@@ -136,14 +131,14 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-12 px-4 sm:px-6" style={{ background: 'var(--c-surface)', borderTop: '1px solid var(--c-border)', borderBottom: '1px solid var(--c-border)' }}>
+      <section className="py-12 px-4 sm:px-6 bg-white border-y border-amber-900/10">
         <div className="max-w-7xl mx-auto space-y-8">
           <div className="text-center space-y-2">
-            <h2 className="text-2xl sm:text-3xl font-display font-bold text-cream">
+            <h2 className="text-2xl sm:text-3xl font-display font-bold text-slate-900">
               Why Devotees Trust Sanjeev Batra & Party
             </h2>
-            <div className="section-divider mx-auto" />
-            <p className="text-xs sm:text-sm font-medium max-w-xl mx-auto" style={{ color: 'var(--c-text-muted)' }}>
+            <div className="section-line mx-auto" />
+            <p className="text-xs sm:text-sm text-slate-600 font-medium max-w-xl mx-auto">
               Our commitment to spiritual purity, musical excellence, and flawless event coordination.
             </p>
           </div>
@@ -171,12 +166,12 @@ export const HomePage: React.FC = () => {
                 desc: "Floral Darbar, live Jhankis & crystal clear sound."
               }
             ].map((item, idx) => (
-              <div key={idx} className="card p-4 sm:p-6 text-center space-y-2">
-                <div className="w-10 h-10 rounded-lg flex items-center justify-center mx-auto" style={{ background: 'rgba(212,105,10,0.1)', color: 'var(--c-saffron-light)' }}>
+              <div key={idx} className="card-light p-4 sm:p-6 text-center space-y-2">
+                <div className="w-10 h-10 rounded-lg bg-orange-50 text-[#C84B26] flex items-center justify-center mx-auto">
                   <item.icon className="w-5 h-5" />
                 </div>
-                <h3 className="font-display text-sm sm:text-base font-bold text-cream">{item.title}</h3>
-                <p className="text-xs leading-relaxed font-medium" style={{ color: 'var(--c-text-muted)' }}>{item.desc}</p>
+                <h3 className="font-display text-sm sm:text-base font-bold text-slate-900">{item.title}</h3>
+                <p className="text-xs text-slate-600 leading-relaxed font-medium">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -185,16 +180,16 @@ export const HomePage: React.FC = () => {
 
       {/* Photo & Video Gallery Preview */}
       <section className="py-4 px-4 sm:px-6 max-w-7xl mx-auto space-y-6">
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pb-4 border-b" style={{ borderColor: 'var(--c-border)' }}>
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pb-3 border-b border-slate-200">
           <div>
-            <h2 className="text-2xl sm:text-3xl font-display font-bold text-cream">
+            <h2 className="text-2xl sm:text-3xl font-display font-bold text-slate-900">
               Divine Glimpses & Videos
             </h2>
-            <p className="text-xs font-medium" style={{ color: 'var(--c-text-muted)' }}>Recent Mata Ki Chowki & Jagran setups by our party.</p>
+            <p className="text-xs text-slate-600 font-medium">Recent Mata Ki Chowki & Jagran setups by our party.</p>
           </div>
           <Link
             to="/gallery"
-            className="btn-outline text-xs px-4 py-2"
+            className="btn-outline-light text-xs px-4 py-2"
           >
             <span>View Full Gallery</span>
             <ArrowRight className="w-3.5 h-3.5" />
@@ -206,17 +201,17 @@ export const HomePage: React.FC = () => {
             <Link
               to="/gallery"
               key={item.id}
-              className="card overflow-hidden relative h-52 group cursor-pointer"
+              className="card-light overflow-hidden relative h-52 group cursor-pointer"
             >
               <img
                 src={item.thumbnail || item.url}
                 alt={item.title}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
-              <div className="photo-overlay absolute inset-0 p-4 flex flex-col justify-end">
-                <span className="text-[10px] font-bold text-gold uppercase tracking-wider">{item.category}</span>
-                <h3 className="text-sm font-bold text-cream line-clamp-1">{item.title}</h3>
-                <p className="text-xs text-muted line-clamp-1 font-medium">{item.description}</p>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-4 flex flex-col justify-end text-white">
+                <span className="text-[10px] font-bold text-amber-300 uppercase tracking-wider">{item.category}</span>
+                <h3 className="text-sm font-bold text-white line-clamp-1">{item.title}</h3>
+                <p className="text-xs text-orange-100 line-clamp-1 font-medium">{item.description}</p>
               </div>
             </Link>
           ))}
@@ -226,35 +221,35 @@ export const HomePage: React.FC = () => {
       {/* Testimonials */}
       <section className="py-8 px-4 sm:px-6 max-w-7xl mx-auto space-y-8">
         <div className="text-center space-y-2">
-          <h2 className="text-2xl sm:text-3xl font-display font-bold text-cream">
+          <h2 className="text-2xl sm:text-3xl font-display font-bold text-slate-900">
             Devotee Experiences & Reviews
           </h2>
-          <div className="section-divider mx-auto" />
-          <p className="text-xs sm:text-sm font-medium max-w-xl mx-auto" style={{ color: 'var(--c-text-muted)' }}>
+          <div className="section-line mx-auto" />
+          <p className="text-xs sm:text-sm text-slate-600 font-medium max-w-xl mx-auto">
             Read what host families say about our devotional bhajan programs.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
           {TESTIMONIALS_DATA.map((t) => (
-            <div key={t.id} className="card p-5 space-y-3">
+            <div key={t.id} className="card-light p-5 space-y-3">
               <div className="flex items-center justify-between">
-                <div className="flex text-amber-400">
+                <div className="flex text-amber-500">
                   {[...Array(t.rating)].map((_, i) => (
                     <Star key={i} className="w-3.5 h-3.5 fill-current" />
                   ))}
                 </div>
-                <span className="text-[11px] font-medium" style={{ color: 'var(--c-text-faint)' }}>{t.date}</span>
+                <span className="text-[11px] text-slate-400 font-medium">{t.date}</span>
               </div>
-              <p className="text-xs sm:text-sm leading-relaxed italic font-medium" style={{ color: 'var(--c-text)' }}>
+              <p className="text-xs sm:text-sm text-slate-700 leading-relaxed italic font-medium">
                 "{t.comment}"
               </p>
-              <div className="pt-3 border-t flex items-center justify-between" style={{ borderColor: 'var(--c-border)' }}>
+              <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
                 <div>
-                  <div className="text-xs font-bold text-cream">{t.name}</div>
-                  <div className="text-[11px]" style={{ color: 'var(--c-text-muted)' }}>{t.location}</div>
+                  <div className="text-xs font-bold text-slate-900">{t.name}</div>
+                  <div className="text-[11px] text-slate-500 font-medium">{t.location}</div>
                 </div>
-                <span className="text-[10px] px-2 py-0.5 rounded font-bold" style={{ background: 'rgba(212,105,10,0.15)', color: 'var(--c-saffron-light)', border: '1px solid rgba(212,105,10,0.3)' }}>
+                <span className="text-[10px] px-2 py-0.5 rounded bg-orange-50 text-[#C84B26] font-bold border border-orange-200">
                   {t.eventType}
                 </span>
               </div>
@@ -268,30 +263,27 @@ export const HomePage: React.FC = () => {
 
       {/* Bottom CTA Banner */}
       <section className="px-4 sm:px-6">
-        <div
-          className="max-w-5xl mx-auto rounded-xl p-8 sm:p-12 text-center text-white space-y-4 relative overflow-hidden"
-          style={{ background: 'linear-gradient(135deg, #1C0D04 0%, #321505 100%)', border: '1px solid var(--c-border-strong)' }}
-        >
-          <div className="text-3xl animate-diya">🪔</div>
-          <h2 className="text-2xl sm:text-3xl font-display font-bold text-cream">
+        <div className="max-w-5xl mx-auto rounded-xl bg-gradient-to-r from-[#C84B26] to-[#D96B27] p-8 sm:p-12 text-center text-white space-y-4 shadow-md border border-orange-700">
+          <div className="text-3xl">🪔</div>
+          <h2 className="text-2xl sm:text-3xl font-display font-bold text-white">
             Ready to Organize a Divine Mata Ki Chowki or Jagran?
           </h2>
-          <p className="text-xs sm:text-sm font-medium max-w-xl mx-auto" style={{ color: 'var(--c-text-muted)' }}>
+          <p className="text-xs sm:text-sm text-orange-100 font-medium max-w-xl mx-auto">
             Book Shri Sanjeev Batra & Party for your auspicious date. Call us directly or chat on WhatsApp for instant booking confirmation.
           </p>
           <div className="flex flex-wrap justify-center gap-3 pt-2">
             <a
               href={`tel:${PHONE_NUMBER_PRIMARY}`}
-              className="btn-primary text-xs sm:text-sm px-6 py-3"
+              className="px-6 py-3 rounded-md bg-white text-[#C84B26] font-bold text-xs sm:text-sm hover:bg-orange-50 transition-colors shadow-sm flex items-center gap-2"
             >
-              <Phone className="w-4 h-4 fill-current" />
+              <Phone className="w-4 h-4 fill-current text-[#C84B26]" />
               <span>Call +91 97164 79938</span>
             </a>
             <a
               href={`https://wa.me/${WHATSAPP_NUMBER}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-wa text-xs sm:text-sm px-6 py-3"
+              className="btn-whatsapp-light text-xs sm:text-sm px-6 py-3 shadow-sm"
             >
               <WhatsAppIcon className="w-4 h-4 text-white" />
               <span>WhatsApp Booking</span>

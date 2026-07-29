@@ -24,27 +24,28 @@ export const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="border-t text-muted pt-12 pb-8 px-4 sm:px-6" style={{ background: '#080300', borderColor: 'var(--c-border)' }}>
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-8 border-b" style={{ borderColor: 'var(--c-border)' }}>
-        {/* Brand & Spiritual Mission */}
+    <footer className="bg-white border-t border-amber-900/10 text-slate-700 pt-12 pb-8 px-4 sm:px-6">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-8 border-b border-slate-200">
+        {/* Brand & Mission */}
         <div className="space-y-3">
           <div className="flex items-center gap-2.5">
-            <div className="text-xl animate-diya">🪔</div>
+            <div className="w-8 h-8 rounded bg-orange-100 text-orange-700 flex items-center justify-center text-lg font-bold">
+              🪔
+            </div>
             <div>
-              <h3 className="font-display text-lg font-bold text-gold">JAGRAN CHOWKI</h3>
-              <p className="text-xs font-hindi text-muted">Shri Sanjeev Batra & Party</p>
+              <h3 className="font-display text-lg font-bold text-slate-900">JAGRAN CHOWKI</h3>
+              <p className="text-xs font-hindi text-[#C84B26] font-bold">Shri Sanjeev Batra & Party</p>
             </div>
           </div>
-          <p className="text-xs leading-relaxed font-medium" style={{ color: 'var(--c-text-muted)' }}>
+          <p className="text-xs leading-relaxed font-medium text-slate-600">
             Delhi NCR's most trusted spiritual event organizers with 15+ years of divine service. Specialized in Mata Ki Chowki, Bhagwati Jagran, Sai Sandhya, Sunderkand Paath & Khatu Shyam Bhajan.
           </p>
-          <div className="pt-1 flex items-center gap-3">
+          <div className="pt-1 flex items-center gap-2.5">
             <a
               href="https://instagram.com/sanjeev.batra.and.party/"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-8 h-8 rounded flex items-center justify-center text-gold hover:text-white transition-all border"
-              style={{ background: 'var(--c-surface)', borderColor: 'var(--c-border)' }}
+              className="w-8 h-8 rounded bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-700 hover:bg-[#C84B26] hover:text-white transition-colors"
               title="Follow on Instagram"
             >
               <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -55,7 +56,7 @@ export const Footer: React.FC = () => {
               href={`https://wa.me/${WHATSAPP_NUMBER}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-8 h-8 rounded flex items-center justify-center text-white transition-all bg-emerald-600 hover:bg-emerald-500"
+              className="w-8 h-8 rounded bg-emerald-600 text-white flex items-center justify-center hover:bg-emerald-500 transition-colors"
               title="Chat on WhatsApp"
             >
               <WhatsAppIcon className="w-4 h-4 text-white" />
@@ -65,7 +66,7 @@ export const Footer: React.FC = () => {
 
         {/* Quick Links */}
         <div className="space-y-3">
-          <h4 className="font-display text-sm font-bold text-gold uppercase tracking-wider border-b pb-1.5" style={{ borderColor: 'var(--c-border)' }}>
+          <h4 className="font-display text-sm font-bold text-slate-900 uppercase tracking-wider border-b border-slate-100 pb-1.5">
             Navigation
           </h4>
           <ul className="space-y-2 text-xs font-medium">
@@ -79,10 +80,10 @@ export const Footer: React.FC = () => {
               <li key={link.to}>
                 <Link
                   to={link.to}
-                  className="hover:text-gold transition-colors flex items-center gap-1.5"
+                  className="hover:text-[#C84B26] transition-colors flex items-center gap-1.5 text-slate-700 font-semibold"
                   onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                 >
-                  <span className="text-saffron font-bold">▸</span> {link.label}
+                  <span className="text-[#C84B26] font-bold">▸</span> {link.label}
                 </Link>
               </li>
             ))}
@@ -91,12 +92,12 @@ export const Footer: React.FC = () => {
 
         {/* Open Status Timings */}
         <div className="space-y-3">
-          <h4 className="font-display text-sm font-bold text-gold uppercase tracking-wider border-b pb-1.5" style={{ borderColor: 'var(--c-border)' }}>
+          <h4 className="font-display text-sm font-bold text-slate-900 uppercase tracking-wider border-b border-slate-100 pb-1.5">
             Open Status
           </h4>
-          <div className="space-y-2 text-xs font-medium">
-            <div className="flex items-center gap-2 text-cream font-bold">
-              <Clock className="w-3.5 h-3.5 text-saffron flex-shrink-0" />
+          <div className="space-y-2 text-xs font-medium text-slate-600">
+            <div className="flex items-center gap-2 text-slate-900 font-bold">
+              <Clock className="w-3.5 h-3.5 text-[#C84B26] flex-shrink-0" />
               <span>Opening Timings: 10:00am to 10:00pm</span>
             </div>
             <p>Mon To Sat : 10:00am to 10:00pm</p>
@@ -106,20 +107,20 @@ export const Footer: React.FC = () => {
 
         {/* Contact Info & Address */}
         <div className="space-y-3">
-          <h4 className="font-display text-sm font-bold text-gold uppercase tracking-wider border-b pb-1.5" style={{ borderColor: 'var(--c-border)' }}>
+          <h4 className="font-display text-sm font-bold text-slate-900 uppercase tracking-wider border-b border-slate-100 pb-1.5">
             Contact Us
           </h4>
-          <div className="space-y-2 text-xs font-medium">
-            <a href={`tel:${PHONE_NUMBER_PRIMARY}`} className="flex items-center gap-2 hover:text-gold transition-colors font-bold text-cream">
-              <Phone className="w-3.5 h-3.5 text-gold flex-shrink-0" />
+          <div className="space-y-2 text-xs font-medium text-slate-650">
+            <a href={`tel:${PHONE_NUMBER_PRIMARY}`} className="flex items-center gap-2 hover:text-[#C84B26] transition-colors font-bold text-slate-900">
+              <Phone className="w-3.5 h-3.5 text-[#C84B26] flex-shrink-0" />
               <span>Mobile: 9716479938 , 7011548995</span>
             </a>
-            <a href={`mailto:${EMAIL_ADDRESS}`} className="flex items-center gap-2 hover:text-gold transition-colors break-all">
-              <Mail className="w-3.5 h-3.5 text-gold flex-shrink-0" />
+            <a href={`mailto:${EMAIL_ADDRESS}`} className="flex items-center gap-2 hover:text-[#C84B26] transition-colors break-all">
+              <Mail className="w-3.5 h-3.5 text-[#C84B26] flex-shrink-0" />
               <span>{EMAIL_ADDRESS}</span>
             </a>
             <div className="flex items-start gap-2 pt-0.5">
-              <MapPin className="w-3.5 h-3.5 text-saffron flex-shrink-0 mt-0.5" />
+              <MapPin className="w-3.5 h-3.5 text-[#C84B26] flex-shrink-0 mt-0.5" />
               <span>{OFFICE_ADDRESS}</span>
             </div>
           </div>
@@ -127,23 +128,23 @@ export const Footer: React.FC = () => {
       </div>
 
       {/* Active Working SEO Keywords Matrix with Real Router Links */}
-      <div className="max-w-7xl mx-auto py-4 border-b text-xs font-medium flex flex-wrap justify-center gap-x-3 gap-y-1.5 text-center" style={{ borderColor: 'var(--c-border)', color: 'var(--c-text-muted)' }}>
+      <div className="max-w-7xl mx-auto py-4 border-b border-slate-200 text-xs font-medium flex flex-wrap justify-center gap-x-3 gap-y-1.5 text-center text-slate-600">
         {seoKeywords.map((item, idx) => (
           <React.Fragment key={idx}>
             <Link
               to={item.to}
-              className="hover:text-gold hover:underline transition-colors"
+              className="hover:text-[#C84B26] hover:underline transition-colors"
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             >
               {item.label}
             </Link>
-            {idx < seoKeywords.length - 1 && <span className="text-saffron opacity-50">•</span>}
+            {idx < seoKeywords.length - 1 && <span className="text-slate-300">•</span>}
           </React.Fragment>
         ))}
       </div>
 
       {/* Bottom Copyright & Attribution */}
-      <div className="max-w-7xl mx-auto pt-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs font-medium" style={{ color: 'var(--c-text-faint)' }}>
+      <div className="max-w-7xl mx-auto pt-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs font-medium text-slate-500">
         <p>© {new Date().getFullYear()} JagranChowki.in (Shri Sanjeev Batra & Party). All Rights Reserved.</p>
         <p className="flex items-center gap-1">
           <span>Designed and Developed by</span>
@@ -151,7 +152,7 @@ export const Footer: React.FC = () => {
             href="https://zorvent.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gold hover:underline transition-colors font-bold"
+            className="text-[#C84B26] hover:underline transition-colors font-bold"
           >
             Zorvent
           </a>
