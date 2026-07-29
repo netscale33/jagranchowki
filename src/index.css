@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 /* =====================================================
-   JAGRAN CHOWKI — Premium Human Light Design System
-   Clean, Crisp, Cultural & Spiritual (Ivory & Warm Vermilion)
+   JAGRAN CHOWKI — Premium Clean Bold Sans Light Theme
+   Clean, Solid, Straight Bold Typography
    ===================================================== */
 
 @layer base {
@@ -27,15 +27,15 @@
     --c-emerald: #15803D;
 
     /* Text Colors */
-    --c-text: #1F2937;             /* Dark Charcoal / Near Black for crisp readability */
-    --c-text-secondary: #4B5563;
-    --c-text-muted: #6B7280;
+    --c-text: #111827;             /* Crisp Slate 900 */
+    --c-text-secondary: #374151;
+    --c-text-muted: #4B5563;
     --c-text-faint: #9CA3AF;
 
-    /* Font Families */
-    --f-display: 'Playfair Display', Georgia, serif;
-    --f-hindi: 'Noto Serif Devanagari', serif;
-    --f-body: 'Inter', system-ui, sans-serif;
+    /* Font Families - Straight, Bold, Modern Sans */
+    --f-display: 'Plus Jakarta Sans', 'Inter', sans-serif;
+    --f-hindi: 'Tiro Devanagari Hindi', serif;
+    --f-body: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
   }
 
   *, *::before, *::after {
@@ -64,6 +64,8 @@
 /* ===== Typography Utilities ===== */
 .font-display {
   font-family: var(--f-display);
+  font-weight: 800;
+  letter-spacing: -0.02em;
 }
 
 .font-hindi {
@@ -108,7 +110,7 @@
   background: var(--c-vermilion);
   color: #FFFFFF;
   font-family: var(--f-body);
-  font-weight: 600;
+  font-weight: 700;
   font-size: 13.5px;
   border-radius: 6px;
   border: none;
@@ -127,7 +129,7 @@
   background: #FFFFFF;
   color: var(--c-text);
   font-family: var(--f-body);
-  font-weight: 600;
+  font-weight: 700;
   font-size: 13.5px;
   border-radius: 6px;
   border: 1px solid var(--c-border-strong);
@@ -147,7 +149,7 @@
   background: var(--c-emerald);
   color: #FFFFFF;
   font-family: var(--f-body);
-  font-weight: 600;
+  font-weight: 700;
   font-size: 13.5px;
   border-radius: 6px;
   border: none;
@@ -161,7 +163,7 @@
 /* ===== Subtle Section Divider ===== */
 .section-line {
   width: 40px;
-  height: 2px;
+  height: 3px;
   background: var(--c-vermilion);
-  border-radius: 1px;
+  border-radius: 2px;
 }
