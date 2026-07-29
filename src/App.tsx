@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { FlowerShower } from './components/FlowerShower';
@@ -10,41 +11,36 @@ import { GalleryPage } from './pages/GalleryPage';
 import { ContactPage } from './pages/ContactPage';
 
 export function App() {
-  const [currentPage, setCurrentPage] = useState<string>('home');
-  const [selectedServiceId, setSelectedServiceId] = useState<string | undefined>(undefined);
-
-  const handleNavigate = (page: string, serviceId?: string) => {
-    setCurrentPage(page);
-    if (serviceId) {
-      setSelectedServiceId(serviceId);
-    }
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  const location = useLocation();
+  const isHome = location.pathname === '/' || location.pathname === '';
 
   return (
-    <div className="min-h-screen bg-[#FFFDF9] text-slate-900 flex flex-col justify-between selection:bg-orange-500 selection:text-white font-sans relative">
-      {/* Flower Shower ONLY on the Home Page top fold */}
-      {currentPage === 'home' && <FlowerShower />}
+    <div className="min-h-screen flex flex-col" style={{ background: 'var(--c-bg)', color: 'var(--c-text)' }}>
+      {/* Flower shower only on home */}
+      {isHome && <FlowerShower />}
 
-      {/* Floating Mobile Corner Action Buttons (Call & WhatsApp) */}
+      {/* Floating mobile action buttons */}
       <MobileQuickBar />
 
-      {/* Header Navigation */}
-      <Navbar currentPage={currentPage} onNavigate={handleNavigate} />
+      {/* Navigation */}
+      <Navbar />
 
-      {/* Main Dynamic View */}
+      {/* Page content */}
       <main className="flex-1">
-        {currentPage === 'home' && <HomePage onNavigate={handleNavigate} />}
-        {currentPage === 'about' && <AboutPage />}
-        {currentPage === 'services' && (
-          <ServicesPage selectedServiceId={selectedServiceId} onNavigate={handleNavigate} />
-        )}
-        {currentPage === 'gallery' && <GalleryPage />}
-        {currentPage === 'contact' && <ContactPage />}
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/services/:serviceId" element={<ServicesPage />} />
+          <Route path="/gallery" element={<GalleryPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          {/* Catch-all redirect to home */}
+          <Route path="*" element={<HomePage />} />
+        </Routes>
       </main>
 
       {/* Footer */}
-      <Footer onNavigate={handleNavigate} />
+      <Footer />
     </div>
   );
 }

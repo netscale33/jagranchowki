@@ -2,98 +2,213 @@
 @tailwind components;
 @tailwind utilities;
 
+/* =====================================================
+   JAGRAN CHOWKI — Premium Spiritual Design System
+   Human-crafted, not AI-generated
+   ===================================================== */
+
 @layer base {
   :root {
-    --font-heading: 'Outfit', sans-serif;
-    --font-hindi: 'Rozha One', 'Tiro Devanagari Hindi', serif;
-    --font-sans: 'Plus Jakarta Sans', sans-serif;
+    /* Color Tokens */
+    --c-bg: #0C0500;
+    --c-surface: #160A02;
+    --c-card: #1C0D04;
+    --c-card-hover: #231006;
+    --c-border: rgba(200, 120, 30, 0.18);
+    --c-border-strong: rgba(200, 120, 30, 0.35);
+
+    /* Brand Colors */
+    --c-saffron: #D4690A;
+    --c-saffron-light: #E87A1A;
+    --c-gold: #C9A227;
+    --c-gold-light: #E8BE50;
+    --c-sindoor: #8B1A1A;
+    --c-emerald: #10B981;
+
+    /* Text */
+    --c-text: #F0E4CC;
+    --c-text-muted: #B8A88A;
+    --c-text-faint: #7A6850;
+
+    /* Font Families */
+    --f-display: 'Playfair Display', Georgia, serif;
+    --f-hindi: 'Noto Serif Devanagari', serif;
+    --f-body: 'Inter', system-ui, sans-serif;
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
   }
 
   body {
-    font-family: var(--font-sans);
-    background-color: #FFFDF9;
-    color: #1E293B;
+    font-family: var(--f-body);
+    background-color: var(--c-bg);
+    color: var(--c-text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+  }
+
+  ::selection {
+    background: rgba(212, 105, 10, 0.4);
+    color: #F0E4CC;
   }
 }
 
-.font-heading {
-  font-family: var(--font-heading);
+/* ===== Typography Utilities ===== */
+.font-display {
+  font-family: var(--f-display);
 }
 
 .font-hindi {
-  font-family: var(--font-hindi);
+  font-family: var(--f-hindi);
 }
 
-/* Bright Spiritual Color Palette */
-.spiritual-gradient-text {
-  background: linear-gradient(135deg, #B91C1C 0%, #EA580C 40%, #D97706 80%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.saffron-gradient-text {
-  background: linear-gradient(135deg, #C2410C 0%, #F97316 50%, #EAB308 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.spiritual-card {
-  background: #FFFFFF;
-  border: 1px solid rgba(245, 158, 11, 0.25);
-  box-shadow: 0 4px 20px rgba(240, 90, 26, 0.08);
-}
-
-.spiritual-card-hover {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.spiritual-card-hover:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(234, 88, 12, 0.18);
-  border-color: rgba(245, 158, 11, 0.6);
-}
-
-.saffron-banner {
-  background: linear-gradient(135deg, #F05A1A 0%, #EA580C 50%, #C2410C 100%);
-}
-
-/* Diya Flicker Effect */
-@keyframes flicker {
-  0%, 100% {
-    opacity: 1;
-    transform: scale(1) rotate(-1deg);
-    filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.9));
-  }
-  50% {
-    opacity: 0.85;
-    transform: scale(1.08) rotate(1deg);
-    filter: drop-shadow(0 0 15px rgba(239, 68, 6, 1));
-  }
-  75% {
-    opacity: 0.92;
-    transform: scale(0.96);
-    filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.7));
-  }
-}
-
-.animate-diya {
-  animation: flicker 2.2s infinite ease-in-out;
-}
-
-/* Custom Scrollbar */
+/* ===== Scrollbar ===== */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
-
 ::-webkit-scrollbar-track {
-  background: #FFF7ED;
+  background: #0C0500;
 }
-
 ::-webkit-scrollbar-thumb {
-  background: #F05A1A;
-  border-radius: 4px;
+  background: #3A1800;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D4690A;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #C2410C;
+/* ===== Card System ===== */
+.card {
+  background: var(--c-card);
+  border: 1px solid var(--c-border);
+  border-radius: 12px;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.card:hover {
+  background: var(--c-card-hover);
+  border-color: var(--c-border-strong);
+}
+
+/* ===== Buttons ===== */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 20px;
+  background: var(--c-saffron);
+  color: #fff;
+  font-family: var(--f-body);
+  font-weight: 700;
+  font-size: 13px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+.btn-primary:hover {
+  background: var(--c-saffron-light);
+  transform: translateY(-1px);
+}
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 20px;
+  background: transparent;
+  color: var(--c-text);
+  font-family: var(--f-body);
+  font-weight: 600;
+  font-size: 13px;
+  border-radius: 6px;
+  border: 1px solid var(--c-border-strong);
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.btn-outline:hover {
+  background: rgba(200, 120, 30, 0.1);
+  border-color: var(--c-saffron);
+}
+
+.btn-wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 20px;
+  background: #16a34a;
+  color: #fff;
+  font-family: var(--f-body);
+  font-weight: 700;
+  font-size: 13px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.btn-wa:hover {
+  background: #15803d;
+}
+
+/* ===== Section Divider ===== */
+.section-divider {
+  width: 48px;
+  height: 3px;
+  background: linear-gradient(to right, var(--c-saffron), var(--c-gold));
+  border-radius: 2px;
+  margin: 12px 0;
+}
+
+/* ===== Gold Text ===== */
+.text-gold {
+  color: var(--c-gold);
+}
+.text-saffron {
+  color: var(--c-saffron-light);
+}
+
+/* ===== Overlay Gradient ===== */
+.photo-overlay {
+  background: linear-gradient(to top, rgba(12,5,0,0.92) 0%, rgba(12,5,0,0.3) 60%, transparent 100%);
+}
+
+/* ===== Diya Flicker Animation ===== */
+@keyframes diya-flicker {
+  0%, 100% { opacity: 1; filter: drop-shadow(0 0 8px rgba(212, 105, 10, 0.9)); }
+  35% { opacity: 0.88; filter: drop-shadow(0 0 14px rgba(212, 105, 10, 1)); }
+  65% { opacity: 0.94; filter: drop-shadow(0 0 6px rgba(212, 105, 10, 0.7)); }
+}
+.animate-diya {
+  animation: diya-flicker 2.4s infinite ease-in-out;
+}
+
+/* ===== Fade In on Scroll (CSS-only trigger) ===== */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeup {
+  animation: fadeUp 0.5s ease both;
+}
+
+/* ===== Page Hero ===== */
+.hero-texture {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4690A' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* ===== Image lazy load fade ===== */
+img {
+  transition: opacity 0.3s ease;
+}
+img.loaded {
+  opacity: 1;
 }

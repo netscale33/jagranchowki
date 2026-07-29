@@ -1,6 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Phone, MapPin, Mail, Clock } from 'lucide-react';
-import { DiyaGlow } from './DiyaGlow';
 import { WhatsAppIcon } from './WhatsAppIcon';
 import {
   PHONE_NUMBER_PRIMARY,
@@ -9,42 +9,33 @@ import {
   OFFICE_ADDRESS
 } from '../data/mockData';
 
-interface FooterProps {
-  onNavigate: (page: string, serviceId?: string) => void;
-}
-
-export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
+export const Footer: React.FC = () => {
   const seoKeywords = [
-    { label: "Mata Ki Chowki Delhi", page: "services", serviceId: "mata-ki-chowki" },
-    { label: "Bhagwati Jagran Party Delhi NCR", page: "services", serviceId: "bhagwati-jagran" },
-    { label: "Sanjeev Batra Jagran Party", page: "about" },
-    { label: "Dilshad Garden Jagran Chowki", page: "contact" },
-    { label: "Sunderkand Paath Booking Noida", page: "services", serviceId: "sunderkand-paath" },
-    { label: "Khatu Shyam Bhajan Gurgaon", page: "services", serviceId: "khatu-shyam" },
-    { label: "Sai Sandhya Organizers Ghaziabad", page: "services", serviceId: "sai-sandhya" },
-    { label: "Best Mata Chowki Rohini & Dwarka", page: "services", serviceId: "mata-ki-chowki" },
-    { label: "Ladies Sangeet Dhol Orchestra", page: "services", serviceId: "ladies-sangeet" },
-    { label: "Photo & Video Gallery Highlights", page: "gallery" }
+    { label: "Mata Ki Chowki Delhi", to: "/services/mata-ki-chowki" },
+    { label: "Bhagwati Jagran Party Delhi NCR", to: "/services/bhagwati-jagran" },
+    { label: "Sanjeev Batra Jagran Party", to: "/about" },
+    { label: "Dilshad Garden Jagran Chowki", to: "/contact" },
+    { label: "Sunderkand Paath Booking Noida", to: "/services/sunderkand-paath" },
+    { label: "Khatu Shyam Bhajan Gurgaon", to: "/services/khatu-shyam" },
+    { label: "Sai Sandhya Organizers Ghaziabad", to: "/services/sai-sandhya" },
+    { label: "Best Mata Chowki Rohini & Dwarka", to: "/services/mata-ki-chowki" },
+    { label: "Ladies Sangeet Dhol Orchestra", to: "/services/ladies-sangeet" },
+    { label: "Photo & Video Gallery Highlights", to: "/gallery" }
   ];
 
-  const handleKeywordClick = (page: string, serviceId?: string) => {
-    onNavigate(page, serviceId);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   return (
-    <footer className="bg-gradient-to-b from-[#1C0D07] via-[#120804] to-[#0A0402] border-t-4 border-orange-500 text-orange-100 pt-12 pb-10 px-4 sm:px-8">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-10 border-b border-orange-500/20">
+    <footer className="border-t text-muted pt-12 pb-8 px-4 sm:px-6" style={{ background: '#080300', borderColor: 'var(--c-border)' }}>
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-8 border-b" style={{ borderColor: 'var(--c-border)' }}>
         {/* Brand & Spiritual Mission */}
-        <div className="space-y-3.5">
-          <div className="flex items-center gap-3">
-            <DiyaGlow size="md" />
+        <div className="space-y-3">
+          <div className="flex items-center gap-2.5">
+            <div className="text-xl animate-diya">🪔</div>
             <div>
-              <h3 className="font-heading text-xl font-bold text-yellow-300">JAGRAN CHOWKI</h3>
-              <p className="text-xs sm:text-sm text-orange-200 font-hindi font-semibold">Shri Sanjeev Batra & Party</p>
+              <h3 className="font-display text-lg font-bold text-gold">JAGRAN CHOWKI</h3>
+              <p className="text-xs font-hindi text-muted">Shri Sanjeev Batra & Party</p>
             </div>
           </div>
-          <p className="text-xs sm:text-sm leading-relaxed text-orange-100/90 font-medium">
+          <p className="text-xs leading-relaxed font-medium" style={{ color: 'var(--c-text-muted)' }}>
             Delhi NCR's most trusted spiritual event organizers with 15+ years of divine service. Specialized in Mata Ki Chowki, Bhagwati Jagran, Sai Sandhya, Sunderkand Paath & Khatu Shyam Bhajan.
           </p>
           <div className="pt-1 flex items-center gap-3">
@@ -52,7 +43,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               href="https://instagram.com/sanjeev.batra.and.party/"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-9 h-9 rounded-full bg-orange-600/40 border border-orange-400/50 flex items-center justify-center text-yellow-300 hover:bg-orange-500 hover:text-white transition-all hover:scale-110"
+              className="w-8 h-8 rounded flex items-center justify-center text-gold hover:text-white transition-all border"
+              style={{ background: 'var(--c-surface)', borderColor: 'var(--c-border)' }}
               title="Follow on Instagram"
             >
               <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -63,28 +55,35 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               href={`https://wa.me/${WHATSAPP_NUMBER}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-9 h-9 rounded-full bg-emerald-600/50 border border-emerald-400/50 flex items-center justify-center text-white hover:bg-emerald-500 transition-all hover:scale-110"
+              className="w-8 h-8 rounded flex items-center justify-center text-white transition-all bg-emerald-600 hover:bg-emerald-500"
               title="Chat on WhatsApp"
             >
-              <WhatsAppIcon className="w-4.5 h-4.5 text-white" />
+              <WhatsAppIcon className="w-4 h-4 text-white" />
             </a>
           </div>
         </div>
 
         {/* Quick Links */}
         <div className="space-y-3">
-          <h4 className="font-heading text-base font-bold text-yellow-300 uppercase tracking-wider border-b border-orange-500/30 pb-2">
+          <h4 className="font-display text-sm font-bold text-gold uppercase tracking-wider border-b pb-1.5" style={{ borderColor: 'var(--c-border)' }}>
             Navigation
           </h4>
-          <ul className="space-y-2 text-xs sm:text-sm font-medium text-orange-100">
-            {['home', 'about', 'services', 'gallery', 'contact'].map((page) => (
-              <li key={page}>
-                <button
-                  onClick={() => handleKeywordClick(page)}
-                  className="hover:text-yellow-300 transition-colors capitalize flex items-center gap-2"
+          <ul className="space-y-2 text-xs font-medium">
+            {[
+              { label: 'Home', to: '/' },
+              { label: 'About Us', to: '/about' },
+              { label: 'Our Services', to: '/services' },
+              { label: 'Photo & Video Gallery', to: '/gallery' },
+              { label: 'Contact & Booking', to: '/contact' }
+            ].map((link) => (
+              <li key={link.to}>
+                <Link
+                  to={link.to}
+                  className="hover:text-gold transition-colors flex items-center gap-1.5"
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                 >
-                  <span className="text-orange-400 font-bold">▸</span> {page.replace('-', ' ')}
-                </button>
+                  <span className="text-saffron font-bold">▸</span> {link.label}
+                </Link>
               </li>
             ))}
           </ul>
@@ -92,66 +91,67 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
 
         {/* Open Status Timings */}
         <div className="space-y-3">
-          <h4 className="font-heading text-base font-bold text-yellow-300 uppercase tracking-wider border-b border-orange-500/30 pb-2">
+          <h4 className="font-display text-sm font-bold text-gold uppercase tracking-wider border-b pb-1.5" style={{ borderColor: 'var(--c-border)' }}>
             Open Status
           </h4>
-          <div className="space-y-2 text-xs sm:text-sm text-orange-100">
-            <div className="flex items-center gap-2 text-yellow-200 font-bold">
-              <Clock className="w-4 h-4 text-orange-400 flex-shrink-0" />
+          <div className="space-y-2 text-xs font-medium">
+            <div className="flex items-center gap-2 text-cream font-bold">
+              <Clock className="w-3.5 h-3.5 text-saffron flex-shrink-0" />
               <span>Opening Timings: 10:00am to 10:00pm</span>
             </div>
-            <p className="text-orange-100/90 font-medium">Mon To Sat : 10:00am to 10:00pm</p>
-            <p className="text-orange-100/90 font-medium">Sun : 12:00pm To 7:00pm</p>
+            <p>Mon To Sat : 10:00am to 10:00pm</p>
+            <p>Sun : 12:00pm To 7:00pm</p>
           </div>
         </div>
 
         {/* Contact Info & Address */}
         <div className="space-y-3">
-          <h4 className="font-heading text-base font-bold text-yellow-300 uppercase tracking-wider border-b border-orange-500/30 pb-2">
+          <h4 className="font-display text-sm font-bold text-gold uppercase tracking-wider border-b pb-1.5" style={{ borderColor: 'var(--c-border)' }}>
             Contact Us
           </h4>
-          <div className="space-y-2.5 text-xs sm:text-sm text-orange-100">
-            <a href={`tel:${PHONE_NUMBER_PRIMARY}`} className="flex items-center gap-2 hover:text-yellow-300 transition-colors font-bold text-white">
-              <Phone className="w-4 h-4 text-yellow-400 flex-shrink-0" />
+          <div className="space-y-2 text-xs font-medium">
+            <a href={`tel:${PHONE_NUMBER_PRIMARY}`} className="flex items-center gap-2 hover:text-gold transition-colors font-bold text-cream">
+              <Phone className="w-3.5 h-3.5 text-gold flex-shrink-0" />
               <span>Mobile: 9716479938 , 7011548995</span>
             </a>
-            <a href={`mailto:${EMAIL_ADDRESS}`} className="flex items-center gap-2 hover:text-yellow-300 transition-colors break-all font-medium">
-              <Mail className="w-4 h-4 text-yellow-400 flex-shrink-0" />
+            <a href={`mailto:${EMAIL_ADDRESS}`} className="flex items-center gap-2 hover:text-gold transition-colors break-all">
+              <Mail className="w-3.5 h-3.5 text-gold flex-shrink-0" />
               <span>{EMAIL_ADDRESS}</span>
             </a>
-            <div className="flex items-start gap-2 text-orange-100 font-medium pt-0.5">
-              <MapPin className="w-4 h-4 text-orange-400 flex-shrink-0 mt-0.5" />
+            <div className="flex items-start gap-2 pt-0.5">
+              <MapPin className="w-3.5 h-3.5 text-saffron flex-shrink-0 mt-0.5" />
               <span>{OFFICE_ADDRESS}</span>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Active Interactive Working SEO Keywords Matrix */}
-      <div className="max-w-7xl mx-auto py-5 border-b border-orange-500/20 text-xs sm:text-sm text-orange-200/80 font-medium flex flex-wrap justify-center gap-x-4 gap-y-2 text-center">
+      {/* Active Working SEO Keywords Matrix with Real Router Links */}
+      <div className="max-w-7xl mx-auto py-4 border-b text-xs font-medium flex flex-wrap justify-center gap-x-3 gap-y-1.5 text-center" style={{ borderColor: 'var(--c-border)', color: 'var(--c-text-muted)' }}>
         {seoKeywords.map((item, idx) => (
           <React.Fragment key={idx}>
-            <button
-              onClick={() => handleKeywordClick(item.page, item.serviceId)}
-              className="hover:text-yellow-300 hover:underline transition-colors cursor-pointer"
+            <Link
+              to={item.to}
+              className="hover:text-gold hover:underline transition-colors"
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             >
               {item.label}
-            </button>
-            {idx < seoKeywords.length - 1 && <span className="text-orange-500/60">•</span>}
+            </Link>
+            {idx < seoKeywords.length - 1 && <span className="text-saffron opacity-50">•</span>}
           </React.Fragment>
         ))}
       </div>
 
       {/* Bottom Copyright & Attribution */}
-      <div className="max-w-7xl mx-auto pt-5 flex flex-col sm:flex-row items-center justify-between gap-2.5 text-xs sm:text-sm text-orange-200/80">
+      <div className="max-w-7xl mx-auto pt-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs font-medium" style={{ color: 'var(--c-text-faint)' }}>
         <p>© {new Date().getFullYear()} JagranChowki.in (Shri Sanjeev Batra & Party). All Rights Reserved.</p>
-        <p className="flex items-center gap-1.5 font-semibold">
+        <p className="flex items-center gap-1">
           <span>Designed and Developed by</span>
           <a
             href="https://zorvent.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-yellow-300 font-bold hover:underline hover:text-white transition-colors"
+            className="text-gold hover:underline transition-colors font-bold"
           >
             Zorvent
           </a>

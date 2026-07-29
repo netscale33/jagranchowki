@@ -1,213 +1,194 @@
 import React, { useState } from 'react';
-import { Phone, Sparkles, Star, Play, X, CheckCircle2, ShieldCheck, Flame } from 'lucide-react';
-import { DiyaGlow } from './DiyaGlow';
+import { Link } from 'react-router-dom';
+import { Phone, Play, X, Star, ShieldCheck, Flame, CheckCircle2 } from 'lucide-react';
 import { WhatsAppIcon } from './WhatsAppIcon';
 import { PHONE_NUMBER_PRIMARY, WHATSAPP_NUMBER } from '../data/mockData';
 
-interface HeroSectionProps {
-  onNavigate: (page: string) => void;
-}
+const MATA_IMAGES = [
+  "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Goddess_Durga.jpg/800px-Goddess_Durga.jpg",
+  "https://jagranchowki.in/wp-content/uploads/2024/02/IMG-20231125-WA0033-1030x773.jpg",
+  "https://jagranchowki.in/wp-content/uploads/2024/02/IMG-20190110-WA0002-773x1030.jpg",
+];
 
-const SHERAWALI_MATA_IMAGE_1 = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Goddess_Durga.jpg/800px-Goddess_Durga.jpg";
-const SHERAWALI_MATA_IMAGE_2 = "https://upload.wikimedia.org/wikipedia/commons/f/fc/Durga_Puja_Mata_Durga.jpg";
-const SHERAWALI_MATA_IMAGE_3 = "https://jagranchowki.in/wp-content/uploads/2024/02/IMG-20190110-WA0002-773x1030.jpg";
+const highlights = [
+  "Live Bhajan Singers",
+  "JBL/RCF Sound System",
+  "Fresh Flower Bhawan",
+  "Live Costume Jhankiyan",
+];
 
-export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate }) => {
-  const [showVideoModal, setShowVideoModal] = useState(false);
-  const [imgSrc, setImgSrc] = useState(SHERAWALI_MATA_IMAGE_1);
+export const HeroSection: React.FC = () => {
+  const [videoOpen, setVideoOpen] = useState(false);
+  const [imgIdx, setImgIdx] = useState(0);
 
-  const handleImageError = () => {
-    if (imgSrc === SHERAWALI_MATA_IMAGE_1) {
-      setImgSrc(SHERAWALI_MATA_IMAGE_2);
-    } else if (imgSrc === SHERAWALI_MATA_IMAGE_2) {
-      setImgSrc(SHERAWALI_MATA_IMAGE_3);
-    }
+  const handleImgError = () => {
+    if (imgIdx < MATA_IMAGES.length - 1) setImgIdx(imgIdx + 1);
   };
 
   return (
-    <section className="relative min-h-[75vh] flex items-center justify-center overflow-hidden py-4 sm:py-8 px-3 sm:px-6 bg-gradient-to-b from-orange-50 via-amber-50/30 to-[#FFFDF9] border-b border-orange-100">
-      {/* Decorative background aura (subtle, no high-intensity neon glow) */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full bg-gradient-to-b from-orange-200/10 to-transparent blur-3xl pointer-events-none" />
+    <>
+      <section
+        className="relative min-h-[90vh] sm:min-h-screen flex items-center overflow-hidden hero-texture"
+        style={{ background: 'linear-gradient(135deg, #0C0500 0%, #1A0800 60%, #0C0500 100%)' }}
+      >
+        {/* Ambient glow */}
+        <div className="absolute top-0 right-0 w-96 h-96 rounded-full opacity-10 pointer-events-none" style={{ background: 'radial-gradient(circle, #D4690A 0%, transparent 70%)', filter: 'blur(80px)' }} />
+        <div className="absolute bottom-0 left-0 w-64 h-64 rounded-full opacity-8 pointer-events-none" style={{ background: 'radial-gradient(circle, #C9A227 0%, transparent 70%)', filter: 'blur(60px)' }} />
 
-      {/* Main Hero Grid Layout */}
-      <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 items-center w-full">
-        {/* Left Column - Content & Action CTAs */}
-        <div className="lg:col-span-6 flex flex-col justify-center space-y-3 sm:space-y-4 text-center lg:text-left py-1">
-          {/* Top Spiritual Tag - Fixed Single Line */}
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-100/80 border border-orange-200 text-orange-950 text-xs sm:text-sm font-bold shadow-sm w-fit mx-auto lg:mx-0">
-            <DiyaGlow size="sm" />
-            <span className="font-hindi text-sm text-red-700 font-bold whitespace-nowrap">|| जय माता दी ||</span>
-            <span className="text-orange-400">•</span>
-            <span className="whitespace-nowrap">श्री संजीव बत्रा एवं पार्टी</span>
-          </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-20 w-full grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
-          {/* Headline */}
-          <div className="space-y-1 sm:space-y-2">
-            <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold font-heading leading-tight tracking-tight text-slate-900">
-              Mata Ki Chowki & Bhagwati Jagran <span className="text-orange-600">Organizers</span>
-            </h1>
-            <p className="text-xs sm:text-lg font-hindi text-orange-900 font-bold leading-normal">
-              दिल्ली NCR की सबसे प्रसिद्ध एवं प्रामाणिक जागरण पार्टी • भक्तिमय संगीत अनुभव
-            </p>
-          </div>
+          {/* — Left: Text content — */}
+          <div className="space-y-5 sm:space-y-6 text-center lg:text-left">
 
-          {/* Feature Highlights Pills */}
-          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-1 sm:gap-1.5">
-            {[
-              "Renowned Singer Team",
-              "JBL/RCF Sound Setup",
-              "Fresh Flower Bhawan",
-              "Live Costume Jhankiyan",
-              "Akhand Jyoti Prachand"
-            ].map((tag, idx) => (
-              <span key={idx} className="px-2 py-0.5 rounded-md bg-orange-50/50 border border-orange-100 text-orange-900 text-[10px] sm:text-xs font-semibold flex items-center gap-1 shadow-sm">
-                <CheckCircle2 className="w-3 h-3 text-emerald-600" />
-                <span>{tag}</span>
-              </span>
-            ))}
-          </div>
-
-          {/* Description */}
-          <p className="text-xs sm:text-sm text-slate-650 font-medium leading-relaxed max-w-xl mx-auto lg:mx-0">
-            Book Shri Sanjeev Batra & Party for auspicious Mata Ki Chowki, Bhagwati Jagran, Sunderkand Paath, Sai Sandhya & Khatu Shyam Bhajan across Delhi, Noida, Gurgaon, Ghaziabad & Faridabad.
-          </p>
-
-          {/* Action CTAs */}
-          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 pt-1">
-            <a
-              href={`tel:${PHONE_NUMBER_PRIMARY}`}
-              className="flex items-center gap-1.5 px-4 py-2.5 rounded-full bg-gradient-to-r from-orange-600 to-orange-700 text-white font-bold text-xs sm:text-sm hover:scale-102 transition-all duration-200 shadow-md border border-orange-500"
-            >
-              <Phone className="w-3.5 h-3.5 fill-current text-yellow-300" />
-              <span>Book Now (+91 97164 79938)</span>
-            </a>
-
-            <a
-              href={`https://wa.me/${WHATSAPP_NUMBER}?text=Jai%20Mata%20Di!%20I%20want%20to%20book%20a%20Chowki/Jagran.`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1.5 px-4 py-2.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm hover:scale-102 transition-all duration-200 shadow-md border border-emerald-500"
-            >
-              <WhatsAppIcon className="w-4.5 h-4.5 text-white" />
-              <span>WhatsApp Booking</span>
-            </a>
-
-            <button
-              onClick={() => setShowVideoModal(true)}
-              className="flex items-center gap-1.5 px-4 py-2.5 rounded-full bg-white hover:bg-orange-50 text-orange-700 font-bold text-xs sm:text-sm transition-all border border-orange-200 shadow-sm"
-            >
-              <Play className="w-3.5 h-3.5 text-orange-650 fill-current" />
-              <span>Watch Video</span>
-            </button>
-          </div>
-
-          {/* Trust Stats Bar */}
-          <div className="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-2 sm:gap-3 text-[10px] sm:text-xs text-slate-500 font-semibold border-t border-slate-100">
-            <div className="flex items-center gap-1 text-amber-600">
-              <div className="flex text-amber-500">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-3 h-3 fill-current" />
-                ))}
-              </div>
-              <span className="ml-0.5 text-slate-800 font-bold">4.9 (1,280+ Reviews)</span>
+            {/* Hindi badge */}
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded text-xs font-medium border" style={{ borderColor: 'var(--c-border-strong)', color: 'var(--c-gold)', background: 'rgba(201,162,39,0.08)' }}>
+              <span className="animate-diya text-base">🪔</span>
+              <span className="font-hindi text-sm font-semibold">|| जय माता दी || श्री संजीव बत्रा एवं पार्टी</span>
             </div>
-            <span>•</span>
-            <span className="font-bold text-emerald-700 flex items-center gap-0.5">
-              <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-              15+ Yrs Legacy
-            </span>
-            <span>•</span>
-            <span className="font-bold text-orange-700 flex items-center gap-0.5">
-              <Flame className="w-3.5 h-3.5 text-orange-600" />
-              5,000+ Events
-            </span>
-          </div>
-        </div>
 
-        {/* Right Column - Standard Size Box Shifted Slightly UP & LEFT */}
-        <div className="lg:col-span-6 flex flex-col justify-center lg:-mt-6 lg:-ml-4">
-          <div className="relative w-full h-[360px] sm:h-[460px] rounded-2xl overflow-hidden shadow-xl border border-orange-200/80 bg-white p-2.5 group">
-            {/* Bright, Crystal Clear Sherawali Mata Image */}
-            <div className="relative w-full h-full rounded-xl overflow-hidden shadow-inner bg-amber-50">
-              <img
-                src={imgSrc}
-                alt="Sherawali Mata Rani Riding Lion"
-                loading="eager"
-                decoding="async"
-                onError={handleImageError}
-                className="w-full h-full object-cover transition-transform duration-700"
-              />
+            {/* Main headline */}
+            <div className="space-y-2">
+              <h1 className="font-display text-3xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight" style={{ color: 'var(--c-text)' }}>
+                Mata Ki Chowki &{' '}
+                <span style={{ color: 'var(--c-saffron-light)' }}>Bhagwati Jagran</span>{' '}
+                Organizers
+              </h1>
+              <p className="font-hindi text-base sm:text-xl font-medium leading-relaxed" style={{ color: 'var(--c-text-muted)' }}>
+                दिल्ली NCR की सबसे प्रसिद्ध एवं विश्वसनीय जागरण पार्टी — भक्तिमय संगीत अनुभव
+              </p>
+            </div>
 
-              {/* Light Bottom Gradient Only so Image is 100% Bright & Visible */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-
-              {/* Play Live Video Overlay Button */}
-              <button
-                onClick={() => setShowVideoModal(true)}
-                className="absolute inset-0 flex flex-col items-center justify-center gap-2 group/play"
-              >
-                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-orange-600/90 text-white flex items-center justify-center shadow-lg group-hover/play:scale-105 transition-transform border-2 border-yellow-300">
-                  <Play className="w-7 h-7 fill-current ml-0.5 text-yellow-300" />
-                </div>
-                <span className="text-[11px] sm:text-xs font-bold text-white bg-black/80 px-3 py-1.5 rounded-full border border-yellow-300/40 shadow-md">
-                  Click to Watch Performance Video
+            {/* Feature chips */}
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2">
+              {highlights.map((h, i) => (
+                <span key={i} className="flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded" style={{ background: 'rgba(200,120,30,0.1)', border: '1px solid rgba(200,120,30,0.2)', color: 'var(--c-text-muted)' }}>
+                  <CheckCircle2 className="w-3 h-3 flex-shrink-0" style={{ color: '#10B981' }} />
+                  {h}
                 </span>
-              </button>
+              ))}
+            </div>
 
-              {/* Special Booking Offer Badge */}
-              <div className="absolute top-3 left-3 px-3 py-1 rounded-md bg-gradient-to-r from-orange-600 to-red-600 text-white font-bold text-[10px] uppercase shadow-md border border-yellow-400/50">
+            {/* Description */}
+            <p className="text-sm leading-relaxed max-w-lg mx-auto lg:mx-0" style={{ color: 'var(--c-text-muted)' }}>
+              Book Shri Sanjeev Batra & Party for Mata Ki Chowki, Bhagwati Jagran, Sunderkand Paath, Sai Sandhya & Khatu Shyam Bhajan across Delhi, Noida, Gurgaon, Ghaziabad & Faridabad.
+            </p>
+
+            {/* CTA buttons */}
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3">
+              <a href={`tel:${PHONE_NUMBER_PRIMARY}`} className="btn-primary text-sm px-5 py-3">
+                <Phone className="w-4 h-4 fill-current" />
+                Call +91 97164 79938
+              </a>
+              <a
+                href={`https://wa.me/${WHATSAPP_NUMBER}?text=Jai%20Mata%20Di!%20I%20want%20to%20book%20a%20Chowki/Jagran.`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-wa text-sm px-5 py-3"
+              >
+                <WhatsAppIcon className="w-4 h-4 text-white" />
+                WhatsApp Booking
+              </a>
+              <button onClick={() => setVideoOpen(true)} className="btn-outline text-sm px-5 py-3">
+                <Play className="w-4 h-4 fill-current" style={{ color: 'var(--c-saffron-light)' }} />
+                Watch Live
+              </button>
+            </div>
+
+            {/* Trust stats */}
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-1 text-xs" style={{ color: 'var(--c-text-muted)', borderTop: '1px solid var(--c-border)' }}>
+              <div className="flex items-center gap-1.5 pt-3">
+                <Star className="w-3.5 h-3.5 fill-current text-yellow-400" />
+                <span className="font-semibold" style={{ color: 'var(--c-text)' }}>4.9/5</span>
+                <span>(1,280+ reviews)</span>
+              </div>
+              <span style={{ color: 'var(--c-border-strong)' }}>·</span>
+              <div className="flex items-center gap-1.5 pt-3">
+                <ShieldCheck className="w-3.5 h-3.5" style={{ color: '#10B981' }} />
+                <span>15+ Years Legacy</span>
+              </div>
+              <span style={{ color: 'var(--c-border-strong)' }}>·</span>
+              <div className="flex items-center gap-1.5 pt-3">
+                <Flame className="w-3.5 h-3.5" style={{ color: 'var(--c-saffron-light)' }} />
+                <span>5,000+ Events</span>
+              </div>
+            </div>
+          </div>
+
+          {/* — Right: Photo card — */}
+          <div className="relative">
+            <div
+              className="relative rounded-xl overflow-hidden shadow-2xl group cursor-pointer"
+              style={{ border: '1px solid var(--c-border-strong)', height: '420px' }}
+              onClick={() => setVideoOpen(true)}
+            >
+              <img
+                src={MATA_IMAGES[imgIdx]}
+                alt="Sherawali Mata Rani — Jagran Chowki by Sanjeev Batra & Party"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                loading="eager"
+                onError={handleImgError}
+              />
+              <div className="photo-overlay absolute inset-0" />
+
+              {/* Play button overlay */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
+                <div className="w-14 h-14 rounded-full flex items-center justify-center shadow-lg" style={{ background: 'rgba(212,105,10,0.92)', border: '2px solid rgba(255,255,255,0.3)' }}>
+                  <Play className="w-6 h-6 fill-current text-white ml-0.5" />
+                </div>
+                <span className="text-xs font-semibold text-white px-4 py-1.5 rounded-full" style={{ background: 'rgba(0,0,0,0.7)', border: '1px solid rgba(255,255,255,0.15)' }}>
+                  Watch Live Performance
+                </span>
+              </div>
+
+              {/* Badge */}
+              <div className="absolute top-3 left-3 px-2.5 py-1 rounded text-[10px] font-bold uppercase tracking-wider text-white" style={{ background: 'var(--c-saffron)' }}>
                 Special Booking Offer
               </div>
 
-              {/* Bottom Card Strip */}
-              <div className="absolute bottom-3 left-3 right-3 p-2.5 bg-black/85 rounded-xl border border-white/10 flex items-center justify-between text-white text-[11px]">
-                <div className="flex items-center gap-1.5 font-bold text-yellow-300">
-                  <Sparkles className="w-3.5 h-3.5 text-yellow-300" />
-                  <span>Bhawan Setup & Orchestra</span>
-                </div>
-                <button
-                  onClick={() => onNavigate('contact')}
-                  className="px-3 py-1 rounded bg-orange-600 hover:bg-orange-500 text-white font-bold text-[10px]"
+              {/* Bottom strip */}
+              <div className="absolute bottom-0 left-0 right-0 p-3 flex items-center justify-between" style={{ background: 'rgba(12,5,0,0.9)', borderTop: '1px solid rgba(200,120,30,0.2)' }}>
+                <span className="text-xs font-medium" style={{ color: 'var(--c-gold)' }}>Full Bhawan Setup & Orchestra Included</span>
+                <Link
+                  to="/contact"
+                  className="text-[11px] font-bold px-3 py-1.5 rounded text-white"
+                  style={{ background: 'var(--c-saffron)' }}
+                  onClick={e => e.stopPropagation()}
                 >
                   Book Date →
-                </button>
+                </Link>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Video Modal Player */}
-      {showVideoModal && (
-        <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md p-4 flex items-center justify-center animate-in fade-in duration-150">
+      {/* Video Modal */}
+      {videoOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4" style={{ background: 'rgba(0,0,0,0.92)', backdropFilter: 'blur(6px)' }}>
           <button
-            onClick={() => setShowVideoModal(false)}
-            className="absolute top-4 right-4 p-2 rounded-full bg-white/10 text-white hover:bg-white hover:text-slate-900 transition-colors z-50"
+            onClick={() => setVideoOpen(false)}
+            className="absolute top-4 right-4 w-9 h-9 rounded-full flex items-center justify-center transition-colors"
+            style={{ background: 'rgba(255,255,255,0.1)', color: '#fff' }}
           >
             <X className="w-5 h-5" />
           </button>
-
-          <div className="max-w-3xl w-full bg-white rounded-2xl overflow-hidden border border-orange-400 p-3 space-y-3 shadow-2xl">
-            <div className="relative aspect-video rounded-xl overflow-hidden bg-black flex items-center justify-center">
+          <div className="w-full max-w-3xl rounded-xl overflow-hidden" style={{ border: '1px solid var(--c-border-strong)' }}>
+            <div className="relative aspect-video bg-black">
               <iframe
                 className="w-full h-full"
-                src="https://www.youtube.com/embed/bJMSNncshgo?autoplay=1"
-                title="Jagran Chowki Sanjeev Batra Live Performance"
+                src="https://www.youtube.com/embed/bJMSNncshgo?autoplay=1&rel=0"
+                title="Shri Sanjeev Batra & Party — Live Mata Ki Chowki Performance"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               />
             </div>
-            <div className="text-center space-y-0.5">
-              <h3 className="text-sm sm:text-base font-bold font-heading text-orange-700">
-                Shri Sanjeev Batra & Party - Live Jagran & Jhanki Highlights
-              </h3>
-              <p className="text-[11px] text-slate-500">
-                Call +91 97164 79938 for date booking and live video clips on WhatsApp.
-              </p>
+            <div className="px-4 py-3 text-center" style={{ background: 'var(--c-surface)', borderTop: '1px solid var(--c-border)' }}>
+              <p className="text-sm font-semibold" style={{ color: 'var(--c-gold)' }}>Shri Sanjeev Batra & Party — Live Jagran & Jhanki Highlights</p>
+              <p className="text-xs mt-0.5" style={{ color: 'var(--c-text-muted)' }}>Call +91 97164 79938 to book your date</p>
             </div>
           </div>
         </div>
       )}
-    </section>
+    </>
   );
 };
