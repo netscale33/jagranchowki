@@ -20,6 +20,12 @@ export const Footer: React.FC = () => {
     { label: "Sai Sandhya Organizers Ghaziabad", to: "/services/sai-sandhya" },
     { label: "Best Mata Chowki Rohini & Dwarka", to: "/services/mata-ki-chowki" },
     { label: "Ladies Sangeet Dhol Orchestra", to: "/services/ladies-sangeet" },
+    { label: "Pitampura Mata Ki Chowki", to: "/services/mata-ki-chowki" },
+    { label: "Janakpuri Jagran Organizers", to: "/services/bhagwati-jagran" },
+    { label: "Indirapuram Sunderkand Recital", to: "/services/sunderkand-paath" },
+    { label: "Vaishali Sai Bhajan Sandhya", to: "/services/sai-sandhya" },
+    { label: "Faridabad Mata Chowki Booking", to: "/services/mata-ki-chowki" },
+    { label: "South Delhi Jagran Samiti", to: "/services/bhagwati-jagran" },
     { label: "Photo & Video Gallery Highlights", to: "/gallery" }
   ];
 
