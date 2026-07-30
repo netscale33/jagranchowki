@@ -1,10 +1,10 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-// https://vitejs.dev/config/
+// Relative base path ('./') ensures the build works on ANY domain, hosting, or subdirectory with ZERO 404 asset errors!
 export default defineConfig({
   plugins: [react()],
-  base: '/jagranchowki/',
+  base: './',
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
